@@ -14,8 +14,7 @@ class RequestAPI(object):
         else:
             print('An error has occurred.')
 
+
 if __name__ == '__main__':
     request_instance = RequestAPI()
     print(request_instance.fetch_data())
-
-
