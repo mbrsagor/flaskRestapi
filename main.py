@@ -4,6 +4,7 @@ from flask_restful import Resource, Api
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import UniqueConstraint
+from views.views import ContactModelView, GroupModelView
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = 'mysql://root:root@db/main'
@@ -20,8 +21,8 @@ class Product(db.Model):
     quanity = db.Column(db.Integer)
     discount_price = db.Column(db.Integer)
     image = db.Column(db.String(200))
-    
-    # UniqueConstraint('discount_price', 'title', name='user_product_unique')
+
+    UniqueConstraint('discount_price', 'title', name='user_product_unique')
 
 
 class Index(Resource):
