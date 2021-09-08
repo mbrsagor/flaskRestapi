@@ -24,12 +24,17 @@ class Product(db.Model):
     # UniqueConstraint('discount_price', 'title', name='user_product_unique')
 
 
-class HelloWorld(Resource):
+class Index(Resource):
     def get(self):
-        return {"hello": "World"}
+        data = [
+            {"Name": "Bozlur Rosid Sagor"},
+            {"Profession": "Software Engineer"},
+            {"Company": "Circle Fintech"},
+        ]
+        return data
 
 
-api.add_resource(HelloWorld, '/')
+api.add_resource(Index, '/')
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
