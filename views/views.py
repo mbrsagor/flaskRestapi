@@ -1,7 +1,7 @@
 from flask_appbuilder import ModelView
 from flask_appbuilder.models.sqla.interface import SQLAInterface
 
-from models.models import ContactGroup, Contact
+from models.models import ContactGroup, Contact, Todo
 
 
 class ContactModelView(ModelView):
@@ -25,3 +25,8 @@ class ContactModelView(ModelView):
 class GroupModelView(ModelView):
     datamodel = SQLAInterface(ContactGroup)
     related_views = [ContactModelView]
+
+
+class TodoModelView(ModelView):
+    datamodel = SQLAInterface(Todo)
+    related_views = [GroupModelView, GroupModelView]
