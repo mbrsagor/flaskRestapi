@@ -1,10 +1,8 @@
-import requests
-from flask import Flask, request
+from flask import Flask
 from flask_restful import Resource, Api
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import UniqueConstraint
-from views.views import ContactModelView, GroupModelView
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = 'mysql://root:root@db/main'
