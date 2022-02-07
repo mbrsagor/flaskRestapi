@@ -5,7 +5,7 @@ from models.models import ContactGroup, Contact, Todo
 
 
 class ContactModelView(ModelView):
-    datamodel = SQLAInterface(Contact)
+    data_model = SQLAInterface(Contact)
 
     label_columns = {'contact_group': 'Contacts Group'}
     list_columns = ['name', 'personal_cellphone', 'birthday', 'contact_group']
@@ -23,10 +23,10 @@ class ContactModelView(ModelView):
 
 
 class GroupModelView(ModelView):
-    datamodel = SQLAInterface(ContactGroup)
+    data_model = SQLAInterface(ContactGroup)
     related_views = [ContactModelView]
 
 
 class TodoModelView(ModelView):
-    datamodel = SQLAInterface(Todo)
+    data_model = SQLAInterface(Todo)
     related_views = [GroupModelView, GroupModelView]

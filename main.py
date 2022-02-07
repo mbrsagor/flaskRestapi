@@ -18,7 +18,7 @@ class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=False)
     title = db.Column(db.String(200))
     price = db.Column(db.Integer)
-    quanity = db.Column(db.Integer)
+    quantity = db.Column(db.Integer)
     discount_price = db.Column(db.Integer)
     image = db.Column(db.String(200))
 
