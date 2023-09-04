@@ -2,7 +2,7 @@ from flask import Flask
 from flask_restful import Resource, Api
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import UniqueConstraint
+from sqlalchemy import UniqueConstraint, select
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = 'mysql://root:root@db/main'
@@ -42,6 +42,18 @@ class Book(Base):
 new_book = Book(title="Django Unleashed", author="Andrew Pinkham")
 session.add(new_book)
 session.commit()
+
+# Migrate
+"""
+alembic revision - autogenerate -m "Added some column"
+alembic upgrade head
+"""
+
+
+# Using ORM API
+ books = session.query(Book).all()
+ books_select = select(Book).where(Book.author == "Andrew Pinkham")
+ books = session.execute(books_select).fetchall()
 
 
 
